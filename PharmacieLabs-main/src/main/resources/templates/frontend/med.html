@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Index</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Pharmacie</h3>
+          
+        </div>
+      </header>
+	</div>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link active" href="#">Medication</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav>
+          </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        
+        <div class="btn-toolbar mb-2 mb-md-0">
+               
+        </div>
+      </div>
+
+     
+
+      <h2>Medication List</h2>
+      <div></div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr >
+              <th scope="col">Medication</th>
+              <th scope="col">Image</th>
+              <th scope="col">Price</th>
+              <th scope="col">okayForPregnancy</th>
+              <th scope="col">isOrdonnanceRequired</th>
+            </tr>
+          </thead>
+          <tbody>
+          <div th:if="${#lists.isEmpty(medicines)}">
+							 <h2>There isn't any medicine</h2>
+			</div>
+		<div th:unless="${#lists.isEmpty(medicines)}">		
+            <tr th:each="medicine : ${medicines}">
+              <td th:text="${medicine.name}"></td>
+              <td>
+			  <img alt="" th:src="*{'data:img/png;base64,'+{medicine.img}}" style="width: 100px;height: 100px;">
+		      </td>
+              <td th:text="${medicine.price}"></td>
+              <td th:text="${medicine.ordonnance}"></td>
+              <td th:text="${medicine.okayForPregnancy}"></td>
+              <td> 
+					<a href="#"   aria-hidden="true" class="btn btn-info mt">Buy</a>
+			  </td>
+	</div>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  
+</div>
+
+
+      <footer class="mastfoot mt-auto">
+        
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
